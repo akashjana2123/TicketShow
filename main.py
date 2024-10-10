@@ -1,7 +1,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
+from models import *
+
+db=SQLAlchemy()
 
 app=Flask(__name__)
+
+app.config["SQLALCHEMY_DATABASE_URI"]=f"Sqlite:///{os.path.abspath(os.path.dirname(__file__))}/database/ticket_show_application.db"
+
+db.init_app(app)
 
 @app.route('/')
 def home():

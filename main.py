@@ -7,7 +7,7 @@ from models import *
 app=Flask(__name__)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"]=f"Sqlite:///{os.path.abspath(os.path.dirname(__file__))}/database/ticket_show_application.db"
+app.config["SQLALCHEMY_DATABASE_URI"]=f"sqlite:///{os.path.abspath(os.path.dirname(__file__))}/database/ticket_show_application.db"
 
 db.init_app(app)
 

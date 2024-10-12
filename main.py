@@ -14,13 +14,11 @@ db.init_app(app)
 @app.route('/')
 def home():
     obj=Admin.query.first()
-    return (
-        "<h1>Welcome to my Flask App!</h1>"
-        "<p>This is a simple Flask application.</p>"
-        "<p>To view this page, navigate to <a href='http://localhost:8000'>http://localhost:8000</a></p>"
-        "<p>Please note that this is a static website and does not have any dynamic content.</p>"
-        f"here is the database for you: {obj}"
-    )
+    return ( f"<h1>Hello {obj.admin_name}</h1>")
+
+@app.route('/abc')
+def abc():
+    return 'Hello World'
 
 if __name__ == '__main__':
     app.run(host='localhost', port=8000, debug=True)

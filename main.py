@@ -14,10 +14,7 @@ db.init_app(app)
 @app.route('/')
 def home():
     obj=Admin.query.first()
-    return ( f"<h1>Hello {obj.admin_name}</h1>"
-             f"<h1>with pass: {obj.admin_password}</h1>"
-
-    )
+    return ( f"<h1>Hello {obj.admin_name}</h1>")
 
 @app.route('/abc')
 def abc():

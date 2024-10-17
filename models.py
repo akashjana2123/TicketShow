@@ -43,6 +43,3 @@ class Ticket(db.Model):
     user_name=db.Column(db.String, db.ForeignKey("user.user_name"))
     ticket_id=db.Column(db.Integer, primary_key=True, autoincrement=True)
     ticket_num_tickets=db.Column(db.Integer, nullable=False)
-
-
-

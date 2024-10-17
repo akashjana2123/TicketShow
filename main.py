@@ -10,7 +10,7 @@ app.config["SQLALCHEMY_DATABASE_URI"]=f"sqlite:///{os.path.abspath(os.path.dirna
 db.init_app(app)
 app.app_context().push()
 
-from controller import *
+from  controllers.controllers import *
 
 if __name__=="__main__":
     app.run(host="localhost", port=8080, debug=True)

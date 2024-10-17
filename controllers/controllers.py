@@ -1,12 +1,13 @@
-from flask import current_app as app
+from flask import current_app as app, render_template
 from models import *
+from controllers.user_controller import *
+from controllers.admin_controller import *
 
 @app.route("/")
 def home():
     obj=Admin.query.first()
     print(obj)
-
-    return f'<h1 style="color:red"> this is your website\'s homepage{obj.admin_name}<h1><a href="/explore/home/national-capital-region-ncr">ncr page</a>'
+    return render_template("index.html", admin_name=obj.admin_name)
 
 @app.route("/explore/home/national-capital-region-ncr")
 def ncr():

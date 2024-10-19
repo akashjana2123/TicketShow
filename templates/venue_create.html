@@ -57,7 +57,20 @@
             </div>
         </div>
     </nav>
-    <h1 style="margin-top: 5%;">Admin Dashboard</h1>
+    <h1 style="margin-top: 5%;">Venue create</h1>
+    <form method="post" class="bg-body-tertiary p-5" style="width: 50%;">
+        <div class="mb-3">
+          <label for="venue_name" class="form-label">Enter Venue Name <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" id="venue_name" name="venue_name" required>
+        </div>
+        <div class="mb-3">
+          <label for="venue_location" class="form-label">Enter Venue Location <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" id="venue_location" name="venue_location" required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <br>
+        <sup class="text-danger">*</sup> indicates required fields
+      </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

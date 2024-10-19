@@ -1,7 +1,7 @@
 from flask import current_app as app, render_template
 from models import *
-from controllers.user_controller import *
-from controllers.admin_controller import *
+from controllers.user_controllers import *
+from controllers.admin_controllers import *
 
 @app.route("/")
 def home():

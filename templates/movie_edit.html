@@ -50,14 +50,6 @@
                                 <li><a class="dropdown-item" href="/movie_delete">Delete movie</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="/relation_management" class="nav-link">Manage movie-show assignments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/summary" class="nav-link">
-                                Summary
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
@@ -65,7 +57,19 @@
             </div>
         </div>
     </nav>
-    <h1 style="margin-top: 5%;">Admin Dashboard</h1>
+    <h1 style="margin-top: 5%;">Movie edit</h1>
+    {%for movie in movies%}
+    <form method="post" class="bg-body-tertiary p-5" style="width: 50%;">
+        <div class="mb-3">
+          <label for="movie_name" class="form-label">Edit movie Name <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" id="movie_name" name="movie_name" required value="{{movie.movie_name}}">
+        </div>
+        <input type="number" name="movie_id" hidden value="{{movie.movie_id}}">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <br>
+        <sup class="text-danger">*</sup> indicates required fields
+      </form>
+      {%endfor%}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

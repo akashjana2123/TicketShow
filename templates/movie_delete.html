@@ -56,30 +56,27 @@
       </div>
     </div>
   </nav>
-  <h1 style="margin-top: 5%;">Venue Delete</h1>
+  <h1 style="margin-top: 5%;">Movie Delete</h1>
   <table class="table table-hover table-bordered">
     <thead>
       <tr>
-        <th scope="col">Venue names</th>
-        <th scope="col">Venue location</th>
-        <!-- <th scope="col">Venue Shows</th> -->
-        <th scope="col">Venue movies</th>
+        <th scope="col">movie names</th>
+        <th scope="col">Venues this movie is being displayed at</th>
         <th scope="col">Option</th>
       </tr>
     </thead>
     <tbody>
-      {%for venue in venues%}
+      {%for movie in movies%}
             <tr>
-              <td>{{venue.venue_name}} <input type="number" hidden value="{{venue.venue_id}}"></td>
-              <td>{{venue.venue_location}}</td>
+              <td>{{movie.movie_name}} <input type="number" hidden value="{{movie.movie_id}}"></td>
               <td>
-                {%for movie in venue.venue_movies%}
-                {{movie.movie_name}},
+                {%for venue in movie.movie_venues%}
+                {{venue.venue_name}},
                 {%endfor%}
               </td>
               <td>
                 <form method="post">
-                  <input type="number" hidden value="{{venue.venue_id}}" name="venue_id">
+                  <input type="number" hidden value="{{movie.movie_id}}" name="movie_id">
                   <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
               </td>

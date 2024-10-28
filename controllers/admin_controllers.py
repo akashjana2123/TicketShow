@@ -5,6 +5,8 @@ from models import *
 logged_admin=None
 unauthorized_error=False
 
+# Admin Login
+
 @app.route("/admin_login", methods=["GET", "POST"])
 def admin_login():
     error=None
@@ -35,10 +37,17 @@ def check_login():
         unauthorized_error=True
         return redirect("admin_login")
 
+# Admin dashboard
+
+
 @app.route("/admin_dashboard")
 def admin_dashboard():
     check_login()
     return render_template("admin_dashboard.html")
+
+#Venue
+
+#Create a venue
 
 @app.route("/venue_create", methods=["GET", "POST"])
 def venue_create():
@@ -52,6 +61,8 @@ def venue_create():
         db.session.commit()
         return redirect("admin_dashboard")
     return render_template("venue_create.html")
+
+#Edit venue
 
 @app.route("/venue_edit", methods=["GET", "POST"])
 def venue_edit():
@@ -67,7 +78,7 @@ def venue_edit():
         return redirect("admin_dashboard")
     return render_template("venue_edit.html",venues=Venue.query.all())
 
-
+#Delete venue
 
 @app.route("/venue_delete", methods=["GET", "POST"])
 def venue_delete():
@@ -82,7 +93,9 @@ def venue_delete():
     venues=Venue.query.all()
     return render_template("venue_delete.html", venues=venues)
 
+#Movie
 
+#Create a Movie
 
 @app.route("/movie_create", methods=["GET", "POST"])
 def movie_create():
@@ -95,6 +108,8 @@ def movie_create():
         db.session.commit()
         return redirect("admin_dashboard")
     return render_template("movie_create.html")
+
+#Edit a Movie
 
 @app.route("/movie_edit", methods=["GET", "POST"])
 def movie_edit():
@@ -110,6 +125,8 @@ def movie_edit():
         return redirect("admin_dashboard")
     return render_template("movie_edit.html",movies=Movie.query.all())
 
+#delete a Movie
+
 @app.route("/movie_delete", methods=["GET", "POST"])
 def movie_delete():
     check_login()
@@ -122,6 +139,8 @@ def movie_delete():
         return redirect("admin_dashboard")
     movies=Movie.query.all()
     return render_template("movie_delete.html", movies=movies)
+
+#Relations
 
 @app.route("/relation_management", methods=["GET", "POST"])
 def relation_management():
